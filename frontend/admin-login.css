@@ -1,0 +1,107 @@
+/* ================= GLOBAL ================= */
+
+*{
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:Poppins,sans-serif;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#080808;
+
+    overflow:hidden;
+}
+
+/* ================= LOGIN BOX ================= */
+
+.login-box{
+
+    width:400px;
+
+    background:#111111;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    border:1px solid #ffffff10;
+
+    box-shadow:
+    0 0 30px rgba(0,247,255,0.15);
+
+    text-align:center;
+}
+
+.login-box h1{
+
+    color:#00f7ff;
+
+    margin-bottom:35px;
+
+    font-size:38px;
+}
+
+.login-box form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+.login-box input{
+
+    padding:18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:#080808;
+
+    color:#ffffff;
+
+    border:1px solid #ffffff10;
+}
+
+.login-box button{
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#00f7ff;
+
+    color:#080808;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:0.4s;
+}
+
+.login-box button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 20px #00f7ff;
+}

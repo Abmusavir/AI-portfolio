@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="admin.css">
+
+    <!-- Font Awesome -->
+
+    <script src="https://kit.fontawesome.com/59f35df058.js"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+
+        <h2>ADMIN</h2>
+
+        <ul>
+
+            <li>
+                <i class="fa-solid fa-envelope"></i>
+                Messages
+            </li>
+
+            <li>
+                <i class="fa-solid fa-diagram-project"></i>
+                Projects
+            </li>
+
+            <li>
+                <i class="fa-solid fa-user"></i>
+                Profile
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+
+        <div class="topbar">
+            
+
+            <h1>
+                Contact Messages
+            </h1>
+
+        </div>
+        <!-- ================= ADD PROJECT FORM ================= -->
+
+<form id="project-form">
+
+    <input type="text"
+    placeholder="Project Title"
+    required>
+
+    <textarea
+    placeholder="Project Description"
+    required></textarea>
+
+    <input type="text"
+    placeholder="Image URL"
+    required>
+
+    <input type="text"
+    placeholder="GitHub Link">
+
+    <input type="text"
+    placeholder="Live Demo Link">
+
+    <button type="submit">
+        Add Project
+    </button>
+
+</form>
+
+        <!-- MESSAGE CONTAINER -->
+
+        <div id="messages-container">
+
+        </div>
+
+    </div>
+    <!-- ================= PROJECTS SECTION ================= -->
+
+<h1 class="section-title">
+
+    Projects
+
+</h1>
+
+<div id="projects-container">
+
+</div>
+
+    <!-- JS -->
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
