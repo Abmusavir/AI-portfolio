@@ -117,23 +117,26 @@ document.addEventListener("mousemove", (e) => {
 });
 /* ================= LOADER ================= */
 
-window.addEventListener("load", () => {
+window.addEventListener(
 
-    const loader = document.getElementById("loader");
+    "load",
 
-    setTimeout(() => {
+    () => {
+
+        const loader =
+        document.querySelector(
+
+            ".loader"
+        );
 
         loader.style.opacity = "0";
 
-        setTimeout(() => {
+        loader.style.visibility =
+        "hidden";
 
-            loader.style.display = "none";
+    }
 
-        }, 1000);
-
-    }, 2500);
-
-});
+);
 /* ================= MOUSE GLOW ================= */
 
 const glow = document.querySelector(".mouse-glow");
@@ -339,3 +342,224 @@ async function fetchProjects(){
 }
 
 fetchProjects();
+/* ================= CHATBOT ================= */
+
+const chatbot =
+document.querySelector(".chatbot");
+
+const chatbotToggler =
+document.querySelector(
+
+    ".chatbot-toggler"
+);
+
+const closeChat =
+document.getElementById(
+
+    "close-chat"
+);
+
+chatbotToggler.onclick = () => {
+
+    chatbot.classList.toggle(
+        "active"
+    );
+
+};
+
+closeChat.onclick = () => {
+
+    chatbot.classList.remove(
+        "active"
+    );
+
+};
+
+const chatInput =
+document.querySelector(
+
+    ".chat-input input"
+);
+
+const sendBtn =
+document.getElementById(
+
+    "send-btn"
+);
+
+const chatbox =
+document.querySelector(
+
+    ".chatbox"
+);
+
+function createChatLi(message, className){
+
+    const chatLi =
+    document.createElement("div");
+
+    chatLi.classList.add(
+
+        "chat",
+        className
+    );
+
+    chatLi.innerHTML =
+    `<p>${message}</p>`;
+
+    return chatLi;
+}
+
+function generateResponse(userMessage){
+
+    userMessage =
+    userMessage.toLowerCase();
+
+    if(
+
+        userMessage.includes("who are you")
+
+    ){
+
+        return `
+        I am Musavir AI 🤖,
+        personal assistant of
+        Syed Abdul Musavir,
+        an AIML Engineer.
+        `;
+    }
+
+    else if(
+
+        userMessage.includes("skills")
+
+    ){
+
+        return `
+        Musavir knows:
+        HTML, CSS, JavaScript,
+        Node.js, MySQL,
+        Python, Flutter,
+        AI/ML and more 🚀
+        `;
+    }
+
+    else if(
+
+        userMessage.includes("projects")
+
+    ){
+
+        return `
+        Musavir built:
+        AI Portfolio,
+        Real Estate Website,
+        Speech Recognition System,
+        AIML Projects and more 😈
+        `;
+    }
+
+    else if(
+
+        userMessage.includes("contact")
+
+    ){
+
+        return `
+        You can contact Musavir
+        through the contact form
+        on this portfolio 📩
+        `;
+    }
+
+    else {
+
+        return `
+        😅 Sorry,
+        I am still learning.
+        Ask about Musavir,
+        skills, projects or contact.
+        `;
+    }
+
+}
+
+function handleChat(){
+
+    const userMessage =
+    chatInput.value.trim();
+
+    if(!userMessage) return;
+
+    chatbox.appendChild(
+
+        createChatLi(
+
+            userMessage,
+
+            "outgoing"
+        )
+
+    );
+
+    chatInput.value = "";
+
+    const typingDiv = document.createElement("div");
+    typingDiv.classList.add("chat", "incoming");
+    typingDiv.innerHTML = `<p class="typing">Musavir AI is typing...</p>`;
+    chatbox.appendChild(typingDiv);
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+
+    setTimeout(() => {
+
+        typingDiv.remove();
+
+        const aiResponse =
+        generateResponse(
+
+            userMessage
+        );
+
+        chatbox.appendChild(
+
+            createChatLi(
+
+                aiResponse,
+
+                "incoming"
+            )
+
+        );
+
+        chatbox.scrollTo(
+
+            0,
+
+            chatbox.scrollHeight
+        );
+
+    }, 1500);
+
+}
+
+sendBtn.addEventListener(
+
+    "click",
+
+    handleChat
+);
+
+chatInput.addEventListener(
+
+    "keypress",
+
+    (e) => {
+
+        if(e.key === "Enter"){
+
+            handleChat();
+        }
+
+    }
+
+);
